@@ -72,3 +72,11 @@ vue-cli-service serve
 ```
 ./node_modules/.bin/vue-cli-service serve
 ```
+
+---
+
+## Para formatear con formato LINT, al finalizar de copiar codigo de proyecto anterior
+
+```
+./node_modules/.bin/vue-cli-service lint
+```
