@@ -1,4 +1,6 @@
 <script>
+import BaseCheckbox from "./BaseCheckbox.vue";
+
 export default {
   props: {
     task: {
@@ -22,6 +24,7 @@ export default {
     // }
   },
   emits: ["update:done", "update:priority"],
+  components: { BaseCheckbox },
 };
 </script>
 
@@ -32,18 +35,18 @@ export default {
   >
     <div>{{ task.description }}</div>
     <div class="py-4 bg-white">
-      <base-checkbox
+      <BaseCheckbox
         class="mb-2"
         @update:model-value="$emit('update:done', $event)"
         :model-value="done"
         >Done
-      </base-checkbox>
+      </BaseCheckbox>
 
-      <base-checkbox
+      <BaseCheckbox
         @update:model-value="$emit('update:priority', $event)"
         :model-value="priority"
         >Prioritized
-      </base-checkbox>
+      </BaseCheckbox>
     </div>
   </div>
 </template>
