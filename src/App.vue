@@ -17,6 +17,7 @@
     >
     </TodoListItem>
   </div>
+  <SummaryLine class="mt-8" />
 </template>
 
 <script>
@@ -25,6 +26,7 @@ let nextTaskId = 100;
 import AddTaskInput from "./components/AddTaskInput.vue";
 import BaseCheckbox from "./components/BaseCheckbox.vue";
 import TodoListItem from "./components/TodoListItem.vue";
+import SummaryLine from "./components/SummaryLine.vue";
 
 export default {
   name: "App",
@@ -32,6 +34,7 @@ export default {
     AddTaskInput,
     BaseCheckbox,
     TodoListItem,
+    SummaryLine,
   },
   data() {
     return {
