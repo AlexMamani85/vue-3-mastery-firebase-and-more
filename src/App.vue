@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     taskAdded(task) {
-      this.tasks.push({
+      this.$store.commit("addTask", {
         id: nextTaskId++,
         description: task,
         done: false,
