@@ -12,8 +12,10 @@
       v-for="task in displayedTasks"
       :task="task"
       :key="task.id"
-      v-model:done="task.done"
-      v-model:priority="task.priority"
+      :done="task.done"
+      :priority="task.priority"
+      @update:done="taskUpdated(task, { done: $event })"
+      @update:priority="taskUpdated(task, { priority: $event })"
     >
     </TodoListItem>
   </div>
@@ -59,6 +61,9 @@ export default {
         done: false,
         priority: false,
       });
+    },
+    taskUpdated(task, changes) {
+      this.$store.commit("updateTask", Object.assign(task, changes));
     },
   },
 };
