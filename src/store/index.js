@@ -1,5 +1,9 @@
 import { createStore } from "vuex";
 
+function getProjectById(state, id) {
+  return state.projects.find((project) => project.id == id);
+}
+
 const store = createStore({
   state() {
     return {
@@ -97,30 +101,34 @@ const store = createStore({
   },
   getters: {
     activeProject(state) {
-      return state.projects.find(
-        (project) => project.id == state.activeProjectId
-      );
+      return getProjectById(state, state.activeProjectId);
     },
     projectsWithStats(state) {
       return state.projects.map((project) => ({
         ...project,
-        notDoneCount: project.tasks.map((task) => !task.done).length,
+        notDoneCount: project.tasks.filter((task) => !task.done).length,
       }));
     },
   },
   mutations: {
     addTask(state, payload) {
-      state.tasks.push(payload);
+      getProjectById(state, payload.projectId)?.tasks.push(payload.task);
     },
     updateTask(state, payload) {
-      const taskIndex = state.tasks?.findIndex((task) => task.id == payload.id);
+      const project = getProjectById(state, payload.projectId);
+      const taskIndex = project?.tasks?.findIndex(
+        (task) => task.id == payload.id
+      );
       //state.tasks.push(payload);
       if (taskIndex !== undefined && taskIndex !== -1) {
-        state.tasks[taskIndex] = payload;
+        project.tasks[taskIndex] = payload.task;
       }
     },
     setOnlyPending(state, payload) {
       state.onlyPending = payload;
+    },
+    setActiveProject(state, activeProjectId) {
+      state.activeProjectId = activeProjectId;
     },
   },
 });
