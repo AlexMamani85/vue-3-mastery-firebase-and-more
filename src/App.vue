@@ -39,6 +39,11 @@ import BaseCheckbox from "./components/BaseCheckbox.vue";
 import TodoListItem from "./components/TodoListItem.vue";
 import SummaryLine from "./components/SummaryLine.vue";
 import ProjectList from "./components/ProjectList.vue";
+import {
+  ADD_TASK,
+  UPDATE_TASK,
+  SET_ONLY_PENDING,
+} from "./store/mutation-types";
 
 export default {
   name: "App",
@@ -70,7 +75,7 @@ export default {
         return this.$store.state.onlyPending;
       },
       set(newValue) {
-        this.$store.commit("setOnlyPending", newValue);
+        this.$store.commit(SET_ONLY_PENDING, newValue);
       },
     },
     activeProjectId() {
@@ -79,7 +84,7 @@ export default {
   },
   methods: {
     taskAdded(task) {
-      this.$store.commit("addTask", {
+      this.$store.commit(ADD_TASK, {
         projectId: this.activeProjectId,
         task: {
           id: nextTaskId++,
@@ -90,7 +95,7 @@ export default {
       });
     },
     taskUpdated(task, changes) {
-      this.$store.commit("updateTask", {
+      this.$store.commit(UPDATE_TASK, {
         projectId: this.activeProjectId,
         task: Object.assign(task, changes),
       });

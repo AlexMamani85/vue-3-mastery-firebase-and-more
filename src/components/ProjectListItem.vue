@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import { SET_ACTIVE_PROJECT } from "@/store/mutation-types";
+
 export default {
   props: { project: Object },
   computed: {
@@ -23,7 +25,7 @@ export default {
   },
   methods: {
     activateProject(projectId) {
-      this.$store.commit("setActiveProject", projectId);
+      this.$store.commit(SET_ACTIVE_PROJECT, projectId);
     },
   },
 };
