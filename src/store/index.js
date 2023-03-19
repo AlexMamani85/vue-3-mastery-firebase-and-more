@@ -3,6 +3,7 @@ import { createStore } from "vuex";
 const store = createStore({
   state() {
     return {
+      onlyPending: false,
       tasks: [
         {
           id: 1,
@@ -40,10 +41,11 @@ const store = createStore({
       const taskIndex = state.tasks?.findIndex((task) => task.id == payload.id);
       //state.tasks.push(payload);
       if (taskIndex !== undefined && taskIndex !== -1) {
-        console.log(payload);
         state.tasks[taskIndex] = payload;
-        console.log(state.tasks[taskIndex]);
       }
+    },
+    setOnlyPending(state, payload) {
+      state.onlyPending = payload;
     },
   },
 });
