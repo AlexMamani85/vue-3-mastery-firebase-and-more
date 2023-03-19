@@ -116,6 +116,9 @@ const store = createStore({
         notDoneCount: project.tasks.filter((task) => !task.done).length,
       }));
     },
+    activeProjectTasks(_, getters) {
+      return getters.activeProject?.tasks ?? [];
+    },
   },
   mutations: {
     [ADD_TASK](state, payload) {
