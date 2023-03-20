@@ -15,7 +15,7 @@ export default {
 };
 </script>
 <template>
-  <div class="flex items-center">
+  <div class="flex-none flex items-center">
     <input
       type="checkbox"
       class="h-4 w-4 text-indigo-600 border-gray-300 rounded mr-2"

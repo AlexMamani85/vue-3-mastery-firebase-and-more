@@ -30,7 +30,7 @@ export default {
 
 <template>
   <div
-    class="bg-white shadow-sm rounded-md text-gray-700 text-xs md:text-sm p-4"
+    class="bg-white shadow-sm rounded-md text-gray-700 p-4"
     :class="{ 'opacity-25 line-through': task.done }"
   >
     <div>{{ task.description }}</div>

@@ -14,7 +14,7 @@
           ><b>Only pending tasks</b>
         </BaseCheckbox>
       </div>
-      <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+      <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
         <TodoListItem
           v-for="task in displayedTasks"
           :task="task"
