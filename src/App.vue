@@ -34,11 +34,11 @@
 <script>
 let nextTaskId = 100;
 // eslint-disable-next-line no-unused-vars
-import AddTaskInput from "./components/AddTaskInput.vue";
-import BaseCheckbox from "./components/BaseCheckbox.vue";
-import TodoListItem from "./components/TodoListItem.vue";
-import SummaryLine from "./components/SummaryLine.vue";
-import ProjectList from "./components/ProjectList.vue";
+import AddTaskInput from "./components/task/AddTaskInput.vue";
+import BaseCheckbox from "./components/base/BaseCheckbox.vue";
+import TodoListItem from "./components/task/TodoListItem.vue";
+import SummaryLine from "./components/project/ProjectSummaryLine.vue";
+import ProjectList from "./components/project/ProjectList.vue";
 import {
   ADD_TASK,
   UPDATE_TASK,

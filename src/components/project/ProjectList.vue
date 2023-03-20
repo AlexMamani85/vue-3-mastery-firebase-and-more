@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import ProjectListItem from "./ProjectListItem.vue";
+import ProjectListItem from "../project/ProjectListItem.vue";
 export default {
   components: { ProjectListItem },
   props: { projects: Array },

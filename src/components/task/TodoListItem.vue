@@ -1,5 +1,5 @@
 <script>
-import BaseCheckbox from "./BaseCheckbox.vue";
+import BaseCheckbox from "../base/BaseCheckbox.vue";
 
 export default {
   props: {
